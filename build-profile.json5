@@ -1,0 +1,55 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\Administrator\\.ohos\\config\\default_taroShell_7aMeL0piRwUXfYzmjCSneE3EAxAOhFwJ2Cegqzjdx10=.cer",
+          "storePassword": "0000001B2E15BEC2B53C504E97A74DFD30F5E02D00902C0AA29F604DE787B6B179A22ECC7221376C213393",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001BC3B0C90C69FF05CEA048170212132F05C208DF0630F83097CBE89C09F72E4415083D813B69DD4B",
+          "profile": "C:\\Users\\Administrator\\.ohos\\config\\default_taroShell_7aMeL0piRwUXfYzmjCSneE3EAxAOhFwJ2Cegqzjdx10=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\Administrator\\.ohos\\config\\default_taroShell_7aMeL0piRwUXfYzmjCSneE3EAxAOhFwJ2Cegqzjdx10=.p12"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
