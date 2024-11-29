@@ -1,16 +1,16 @@
 import { View, Button } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import './index.scss'
-import nativeApi from '../../../utils/nativeApi'
+// import nativeApi from '../../../utils/nativeApi'
 
 export default function Index() {
   const handleSayHello = () => {
-    nativeApi.sayHello({
-      str: 'hhhhhhhhhhh',
-      success: (option) => {
-        console.log(option)
-      }
-    })
+    // nativeApi.sayHello({
+    //   str: 'hhhhhhhhhhh',
+    //   success: (option) => {
+    //     console.log(option)
+    //   }
+    // })
   }
   return (
     <View className='index'>

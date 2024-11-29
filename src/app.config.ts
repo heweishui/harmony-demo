@@ -7,6 +7,7 @@ export default defineAppConfig({
     'pages/Test/list/index',
     'pages/Test/image/index',
     'pages/Test/webview/index',
+    'pages/swiper/swiper',
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -14,8 +15,8 @@ export default defineAppConfig({
     navigationBarTitleText: 'WeChat',
     navigationBarTextStyle: 'black'
   },
-  animation:{
-    delay:5,
-    duration:200
-  }
+  // animation:{
+  //   delay:5,
+  //   duration:200
+  // }
 })
