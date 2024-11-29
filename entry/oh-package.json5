@@ -6,7 +6,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@hybrid/web-container": "2.0.0-rc.6"
+    "@hybrid/web-container": "2.0.0-rc.8"
 //    "@hybrid/web-container": "file:D:/project/new-shell/harmonyos-shell/TaroWebContainer/build/default/outputs/default/TaroWebContainer.har"
 
   }

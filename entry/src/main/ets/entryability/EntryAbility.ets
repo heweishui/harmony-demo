@@ -1,7 +1,7 @@
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
-import { TaroHybridManager,GlobalThis, LocalUpdateManagerInstance } from '@hybrid/web-container'
+import { TaroHybridManager } from '@hybrid/web-container'
 import router from '@ohos.router';
 import common from '@ohos.app.ability.common';
 import { TaroHybridNativeMethods } from '../pages/TaroHybridNativeMethods';
@@ -13,8 +13,8 @@ export default class EntryAbility extends UIAbility {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
     TaroHybridManager.setCustomUserAgent('WUBA (Phone; OpenHarmony)')
     storage.setOrCreate('want', want);
-    GlobalThis.getInstance().setRawFile('demo')
-    LocalUpdateManagerInstance.updateMiniOnLaunch(this.context)
+    // GlobalThis.getInstance().setRawFile('demo')
+    // LocalUpdateManagerInstance.updateMiniOnLaunch(this.context)
   }
 
   onDestroy(): void {
@@ -42,6 +42,8 @@ export default class EntryAbility extends UIAbility {
         },
         forceDarkAccess: true,
         windowClass,
+        diskCacheEnable:false,
+        rawFileName:"demo"
       })
       // 预加载，可选，不是必须
       TaroHybridManager.preLoader(
@@ -49,7 +51,6 @@ export default class EntryAbility extends UIAbility {
         "/demo/main/index.html", // html的path路由
         "/pages/index/index" // Taro小程序的Page路径
       )
-
       if (err.code) {
         hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
         return;
@@ -72,4 +73,8 @@ export default class EntryAbility extends UIAbility {
     // Ability has back to background
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onBackground');
   }
+}
+
+async function a() {
+  return 123;
 }

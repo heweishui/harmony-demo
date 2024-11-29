@@ -19,6 +19,7 @@ struct TabsPage {
 
   onPageShow(): void {
     this.tabsController.preloadItems([0,1,2])
+    // this.taroWebController.webController.runJavaScript(`window.sayHello(${'harmony'})`)
   }
 
   onPageHide(): void {
@@ -27,7 +28,7 @@ struct TabsPage {
     this.pageState2 = HostPageState.PageOnHide
   }
   webUrl():string{
-    return 'resource://rawfile/demo/main@100000/demo/main/index.html';
+    return 'resource://rawfile/index.html';
     // return 'http://172.29.16.1:8080/#/pages/index/index';
     // return 'http://172.29.16.1:3000/dev/emgencyRescue/?sessionId=f8d962b5-bec8-4ce2-8143-3ce711f021be&source=harmony-hybrid&curEnv=harmony-hybrid&appCode=9011&isNew=false&windowHeight=837&screenHeight=758&headeHeight=41&code=d24b26d9a7ddff0918f95a4b9edbbad5&lat=30.397502&lon=114.37352&isOwner=1#/';
     // return 'https://e-mallh5.dfpv.com.cn/dev/emgencyRescue/?sessionId=f8d962b5-bec8-4ce2-8143-3ce711f021be&source=harmony-hybrid&curEnv=harmony-hybrid&appCode=9011&isNew=false&windowHeight=837&screenHeight=758&headeHeight=41&code=d24b26d9a7ddff0918f95a4b9edbbad5&lat=30.397502&lon=114.37352&isOwner=1#/';
@@ -53,6 +54,11 @@ struct TabsPage {
       return '';
     }
   }
+
+  // onDidBuild(): void {
+  //   this.taroWebController.webController.runJavaScript(`window.sayHello(${'harmony'})`)
+  // }
+
 
   @Builder
   TabBuilder(title: string, targetIndex: number, normalImg: Resource, selectedImg: Resource) {
@@ -89,7 +95,7 @@ struct TabsPage {
               taroWebController: this.taroWebController,
               isFullScreen: false, // 是否全屏显示
               // injectObj: this.nativeObj, // 注入对象
-              navigationInitVisible: true, // 导航栏是否显示
+              navigationInitVisible: false, // 导航栏是否显示
               forceDarkAccess: true,
               userAgent: '',
             })
