@@ -13,7 +13,7 @@ struct TabsPage {
   @State pageState1: HostPageState = HostPageState.PageInit;
   @State pageState2: HostPageState = HostPageState.PageInit;
   @State indexHtmlPath: string = '/demo/main/index.html';
-  private tabsController: TabsController = new TabsController()
+  public tabsController: TabsController = new TabsController()
   @State taroWebController: TaroWebController = new TaroWebController();
   @LocalStorageProp('want') want: Want = {};
 

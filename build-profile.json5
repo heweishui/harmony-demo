@@ -19,9 +19,9 @@
         "type": "HarmonyOS",
         "material": {
           "certpath": "C:\\Users\\Administrator\\.ohos\\config\\default_taroShell_7aMeL0piRwUXfYzmjCSneE3EAxAOhFwJ2Cegqzjdx10=.cer",
-          "storePassword": "00000019195AE9D2F3F5471BAB7644321967B544D46E1F2DD8D14FC5CEC543DBDE80466AFC2EDE2D5B",
+          "storePassword": "00000019C57EB1063E5A918BE6EEC978D4871C326F6F62072C0E2189C53A20AF961AC5A624570D90C6",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001952D2CFB680CEF243934F41C9C2AC1AD6D4F5EEA0090494D0C465C509FF44718CB7332B9FE9",
+          "keyPassword": "000000197149604D8EB3EDF3393C1047BCBD42C9882233C4D6E2F9B1F8584F93B61E25B0B1B8F7CCAA",
           "profile": "C:\\Users\\Administrator\\.ohos\\config\\default_taroShell_7aMeL0piRwUXfYzmjCSneE3EAxAOhFwJ2Cegqzjdx10=.p7b",
           "signAlg": "SHA256withECDSA",
           "storeFile": "C:\\Users\\Administrator\\.ohos\\config\\default_taroShell_7aMeL0piRwUXfYzmjCSneE3EAxAOhFwJ2Cegqzjdx10=.p12"

@@ -5,16 +5,33 @@ import { TaroHybridManager } from '@hybrid/web-container'
 import router from '@ohos.router';
 import common from '@ohos.app.ability.common';
 import { TaroHybridNativeMethods } from '../pages/TaroHybridNativeMethods';
+import { BusinessError } from '@kit.BasicServicesKit';
 
 const storage = new LocalStorage();
 
 export default class EntryAbility extends UIAbility {
+  private taroController: WebviewController | null;
+  constructor() {
+
+    super();
+    this.taroController = null
+  }
+
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
     TaroHybridManager.setCustomUserAgent('WUBA (Phone; OpenHarmony)')
     storage.setOrCreate('want', want);
     // GlobalThis.getInstance().setRawFile('demo')
     // LocalUpdateManagerInstance.updateMiniOnLaunch(this.context)
+    TaroHybridManager.getWebController('index.html', (controller: WebviewController) => {
+      controller?.runJavaScript('test()')
+        .then((result) => {
+          console.log('result: ' + result);
+        })
+        .catch((error: BusinessError) => {
+          console.error("error: " + error);
+        })
+    })
   }
 
   onDestroy(): void {
@@ -33,7 +50,7 @@ export default class EntryAbility extends UIAbility {
         uiAbilityContext: this.context,
         // domain: 'http://172.29.16.1:3000', // 小程序的域名，注意：此处不添加/结尾
         domain: 'http://domain', // 小程序的域名，注意：此处不添加/结尾
-        injectNativeMethod: (indexHtmlPath: string,uiAbilityContext: common.UIAbilityContext) => { // 扩展原生API
+        injectNativeMethod: (indexHtmlPath: string, uiAbilityContext: common.UIAbilityContext) => { // 扩展原生API
           return new TaroHybridNativeMethods(uiAbilityContext).nativeObj
         },
         rootIndexHtmlPath: "/demo/main/index.html",
@@ -42,8 +59,8 @@ export default class EntryAbility extends UIAbility {
         },
         forceDarkAccess: true,
         windowClass,
-        diskCacheEnable:false,
-        rawFileName:"demo"
+        diskCacheEnable: false,
+        rawFileName: "demo"
       })
       // 预加载，可选，不是必须
       TaroHybridManager.preLoader(
@@ -67,6 +84,7 @@ export default class EntryAbility extends UIAbility {
   onForeground(): void {
     // Ability has brought to foreground
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onForeground');
+
   }
 
   onBackground(): void {
